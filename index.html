@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>People</title>
+  <meta name="description" content="People of the Computational Social Science Research Group.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top bar: group name only. This page has no navigation by design. -->
+  <!-- <header class="topbar">
+    <p class="topbar__title">Computational Social Science Research Group</p>
+  </header> -->
+
+  <!-- Hero: full-width banner, trimmed only along its bottom edge. Swap the
+       picture by changing the src below (files live in images/website/) and
+       its height with --hero-max-height in css/style.css.
+       The group's name is part of the picture and the white top bar above is
+       switched off, so the alt text has to carry that name for screen readers
+       and search engines. Keep it accurate if you change the image. -->
+  <header class="hero">
+    <img class="hero__image" src="images/website/cssr3.png"
+         alt="The Computational Social Science Research Group">
+  </header>
+
+  <!-- Navbar: the white strip under the banner. Top-level items live here, so
+       adding one means copying the "Our Work" <li> below. The People dropdown
+       is filled in by js/main.js from the groups in data/people.js, so a new
+       group appears in the menu on its own. -->
+  <nav class="navbar" aria-label="Main">
+    <ul class="navbar__list">
+      <li class="navbar__item navbar__item--menu" id="nav-people">
+        <button class="navbar__button" type="button"
+                aria-expanded="false" aria-controls="nav-people-menu">
+          People <span class="navbar__caret" aria-hidden="true">&#9660;</span>
+        </button>
+        <ul class="navbar__menu" id="nav-people-menu"></ul>
+      </li>
+      <li class="navbar__item">
+        <a class="navbar__link" href="#group-ourwork">Our Work</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="page">
+    <h1 class="page__title">People</h1>
+
+    <!-- js/main.js renders every section in here. Do not add people by hand. -->
+    <div id="people-root"></div>
+
+    <!-- Shown only if the data cannot be loaded or is empty. -->
+    <p id="status" class="status" hidden></p>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">&copy; <span id="year"></span> Computational Social Science Research Group, IGDTUW</p>
+  </footer>
+
+  <!-- Data first: this defines window.PEOPLE_DATA and works from file:// too. -->
+  <script src="data/people.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

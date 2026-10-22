@@ -1,0 +1,287 @@
+{
+  "groups": [
+    {
+      "id": "faculty",
+      "label": "Faculty",
+      "layout": "card"
+    },
+    {
+      "id": "masters",
+      "label": "Masters Students",
+      "layout": "card"
+    },
+    {
+      "id": "btech",
+      "label": "B.Tech Students",
+      "layout": "card"
+    },
+    {
+      "id": "ourwork",
+      "label": "Our Work",
+      "layout": "list",
+      "nav": false
+    }
+  ],
+  "people": [
+    {
+      "group": "faculty",
+      "name": "Dr. Rishabh Kaushal",
+      "role": "Associate Professor",
+      "photo": "images/people/rishabhkaushal.jpg",
+      "links": {
+        "web": "https://rishabhkaushal.github.io/",
+        "scholar": "https://scholar.google.com/citations?user=Ra6L5R0AAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/rishabhkaushal/"
+      }
+    },
+    {
+      "group": "masters",
+      "name": "Rupashi Maurya",
+      "role": "MCA IT · 2nd year",
+      "topic": "Gendered Discourse and Masculine Defaults in Indian YouTube communities",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/rupashi-maurya"
+      }
+    },
+    {
+      "group": "masters",
+      "name": "Pranati Sharma",
+      "role": "MCA IT · 2nd year",
+      "topic": "Gendered Discourse and Masculine Defaults in Indian YouTube communities",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/pranati--sharma"
+      }
+    },
+    {
+      "group": "masters",
+      "name": "Roshni",
+      "role": "MCA IT · 2nd year",
+      "topic": "Gendered Discourse and Masculine Defaults in Indian YouTube communities",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/roshni8954"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Rabbika Azmi",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "HinglishHate: A Target-Aware Benchmark for Hate Category Detection in Hinglish Memes",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/rabbika-azmi"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Mahi Arora",
+      "role": "B.Tech ECE · 3rd year",
+      "topic": "Fact Checking for Indian politics",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/mahi-arora-b0a92a322/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Gehna Dhawan",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "Narrative Analysis of Indian Political Deepfakes",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/gehna-dhawan-27832432b"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Anshika Prajapati",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "Narrative Analysis of Indian Political Deepfakes",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/anshika-prajapati-36252b36b"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Vidisha",
+      "role": "B.Tech CSE-AI · 3rd year",
+      "topic": "Digital Public Discourse on Dowry Violence: A Computational Social Science perspective",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/vidisha-477328214/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Manya Kalra",
+      "role": "B.Tech CSE · 4th year",
+      "topic": "Digital Public Discourse on Dowry Violence: A Computational Social Science perspective",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/manyakalra05/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Shriya Sandilya",
+      "role": "B.Tech CSE-AI · 4th year",
+      "topic": "LLM based Synthetic Social Network Generation",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/shriya-s/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Nihalika Raj Sharma",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "LLM based Synthetic Social Network Generation",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/nihalika-raj-sharma/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Ritika Maan",
+      "role": "B.Tech ECE-AI · 3rd year",
+      "topic": "Coordination through Reply Chains in Information Operation Campaigns",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/ritika-maan/"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Shubhika Jain",
+      "role": "B.Tech AIML · 3rd year",
+      "topic": "Coordination through Reply Chains in Information Operation Campaigns",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/shubhika-jain-"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Vriti Goyal",
+      "role": "B.Tech ECE-AI · 3rd year",
+      "topic": "Coordination through Reply Chains in Information Operation Campaigns",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/vritigoyal"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Midushi Maheshwari",
+      "role": "B.Tech ECE-AI · 2nd year",
+      "topic": "AI-Generated and Human-Produced Children's Videos: A Comparative Analysis of Audiovisual Features",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/midushi-maheshwari"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Muskan Goel",
+      "role": "B.Tech AIML · 3rd year",
+      "topic": "AI-Generated and Human-Produced Children's Videos: A Comparative Analysis of Audiovisual Features",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/muskan-goel-apr10"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Charushi",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "AI-Generated and Human-Produced Children's Videos: A Comparative Analysis of Audiovisual Features",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/charushi06"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Shubhi Mittal",
+      "role": "B.Tech IT · 3rd year",
+      "topic": "Audit of AGTD Systems on Academic Text and Linguistic Diversity",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/shubhi-mittal-74035b329"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Payal",
+      "role": "B.Tech CSE · 3rd year",
+      "topic": "Audit of AGTD Systems on Academic Text and Linguistic Diversity",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/payal-cse"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Arunima Mohan",
+      "role": "B.Tech CSE-AI · 3rd year",
+      "topic": "Disagreement-based Collaborative Annotations: Can Disagreements lead to better LLM annotations?",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/arunima-mohan-9aa54b324"
+      }
+    },
+    {
+      "group": "btech",
+      "name": "Ananya Ahuja",
+      "role": "B.Tech CSE · 3rd year",
+      "topic": "Disagreement-based Collaborative Annotations: Can Disagreements lead to better LLM annotations?",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/ananya-ahuja01/"
+      }
+    },
+    {
+      "group": "ourwork",
+      "name": "Rabbika Azmi",
+      "role": "B.Tech Project",
+      "topic": "HinglishHate: A Target-Aware Benchmark for Hate Category Detection in Hinglish Memes"
+    },
+    {
+      "group": "ourwork",
+      "name": "Mahi Arora",
+      "role": "B.Tech Project",
+      "topic": "Fact Checking for Indian politics"
+    },
+    {
+      "group": "ourwork",
+      "name": "Gehna Dhawan, Anshika Prajapati",
+      "role": "B.Tech Project",
+      "topic": "Narrative Analysis of Indian Political Deepfakes"
+    },
+    {
+      "group": "ourwork",
+      "name": "Vidisha, Manya Kalra",
+      "role": "B.Tech Project",
+      "topic": "Digital Public Discourse on Dowry Violence: A Computational Social Science perspective"
+    },
+    {
+      "group": "ourwork",
+      "name": "Shriya Sandilya, Nihalika Raj Sharma",
+      "role": "B.Tech Project",
+      "topic": "LLM based Synthetic Social Network Generation"
+    },
+    {
+      "group": "ourwork",
+      "name": "Ritika Maan, Shubhika Jain, Vriti Goyal",
+      "role": "B.Tech Project",
+      "topic": "Coordination through Reply Chains in Information Operation Campaigns"
+    },
+    {
+      "group": "ourwork",
+      "name": "Rupashi Maurya, Pranati Sharma, Roshni",
+      "role": "MCA Project",
+      "topic": "Gendered Discourse and Masculine Defaults in Indian YouTube communities"
+    },
+    {
+      "group": "ourwork",
+      "name": "Midushi Maheshwari, Muskan Goel, Charushi",
+      "role": "B.Tech Project",
+      "topic": "AI-Generated and Human-Produced Children's Videos: A Comparative Analysis of Audiovisual Features"
+    },
+    {
+      "group": "ourwork",
+      "name": "Shubhi Mittal, Payal",
+      "role": "B.Tech Project",
+      "topic": "Audit of AGTD Systems on Academic Text and Linguistic Diversity"
+    },
+    {
+      "group": "ourwork",
+      "name": "Arunima Mohan, Ananya Ahuja",
+      "role": "B.Tech Project",
+      "topic": "Disagreement-based Collaborative Annotations: Can Disagreements lead to better LLM annotations?"
+    }
+  ]
+}

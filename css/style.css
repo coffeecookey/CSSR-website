@@ -1,0 +1,435 @@
+/* ==========================================================================
+   Computational Social Science Research Group — People page
+   --------------------------------------------------------------------------
+   Everything tweakable lives in the :root block below: colours, font sizes,
+   spacing and card sizing. Change a value there and the whole page follows.
+   Class names are BEM-ish: .block, .block__element.
+   ========================================================================== */
+
+:root {
+  /* --- Colours -----------------------------------------------------------
+     Blue page, white ink. The exception is the navbar, which stays white
+     and has its own tokens below. Every pairing meets WCAG AA (4.5:1); the
+     ratio against the blue page is noted. */
+  --bg: #4355c6;                 /* page background */
+  --text: #FFFFFF;               /* body text - 6.1:1 on the blue */
+  --text-muted: #E2E6FC;         /* secondary text (role, topic, footer) - 4.9:1 */
+  --bar-bg: #FFFFFF;             /* top bar is the inverse of the page */
+  --bar-text: #4355c6;
+  --placeholder-bg: #FFFFFF;     /* initials tile when a photo is missing */
+  --placeholder-text: #4355c6;
+  --divider: #6B7CF2;            /* hairlines */
+  --link: #FFFFFF;
+  --link-hover: #DDE2FB;         /* page is dark, so hover dims rather than darkens */
+  --focus: #FFFFFF;              /* keyboard focus ring */
+
+  /* The navbar is the white strip under the banner, so it needs its own
+     colours - it is light while the page below it is blue. */
+  --nav-bg: #FFFFFF;
+  --nav-text: #334DEF;           /* 6.1:1 on white */
+  --nav-hover: #1B2FBF;          /* darker on hover, because the bar is light */
+  --nav-border: #D5DAF9;         /* edge of the dropdown panel */
+
+  /* --- Typography -------------------------------------------------------- */
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --size-bar: 20px;              /* group name in the top bar */
+  --size-h1: 64px;               /* "People" */
+  --size-h2: 30px;               /* section headings */
+  --size-h3: 17px;               /* "Class of 2025" sub-headings */
+  --size-name: 20px;             /* person name on a card */
+  --size-body: 17px;             /* role, topic, list rows */
+  --size-link: 14px;             /* text fallback for a link type with no icon */
+  --icon-size: 20px;             /* LinkedIn / Scholar / chain / ... glyphs */
+  --icon-pad: 6px;               /* breathing room each side of an icon */
+  --size-nav: 17px;              /* navbar items */
+  --size-caret: 12px;            /* the dropdown triangle (U+25BC in index.html) */
+  --size-initials: 40px;
+
+  /* --- Spacing ----------------------------------------------------------- */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --content-max: 1200px;         /* main column */
+  --content-pad: 48px;           /* side padding on desktop */
+  --cards-max: 1080px;           /* card rows: 4 x 240px + 3 x 40px gaps */
+  --card-width: 240px;           /* text column of a card */
+  --photo-size: 180px;           /* portrait / initials tile, centred in the card */
+  --card-gap-row: 64px;
+  --card-gap-col: 40px;
+  --tap-target: 44px;            /* minimum touch height for small links */
+  --hero-max-height: 380px;      /* banner height - THIS is the knob. Trimmed
+                                    evenly off the top and bottom. */
+  --nav-height: 52px;            /* height of the navbar strip */
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-stack);
+  font-size: var(--size-body);
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Long names, topics and URLs must never force sideways scrolling. */
+h1, h2, h3, p, li, a { overflow-wrap: break-word; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Always-visible focus ring for keyboard users. */
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; }
+
+/* --------------------------------------------------------------------------
+   Top bar
+   -------------------------------------------------------------------------- */
+
+.topbar {
+  background: var(--bar-bg);
+  color: var(--bar-text);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+}
+
+.topbar__title {
+  margin: 0;
+  font-size: var(--size-bar);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Hero banner — full bleed, trimmed evenly off the top and bottom.
+   object-position: center keeps the middle of the picture, so the lettering
+   stays put and the trim is shared between the two edges.
+   The 38vw must stay below the image's height-to-width ratio, otherwise the
+   strip becomes taller than the picture scaled to the window and gets cropped
+   at the sides too. cssr3.png is 1584x672, i.e. 42vw, so 38vw has room to
+   spare; lower this number if you swap in a wider banner.
+   -------------------------------------------------------------------------- */
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: min(38vw, var(--hero-max-height));
+  object-fit: cover;              /* fill the full width, never squash */
+  object-position: center;        /* trim top and bottom equally */
+}
+
+/* --------------------------------------------------------------------------
+   Navbar — the white strip under the banner.
+   Make it taller or shorter with --nav-height. The dropdown opens by a class
+   that js/main.js toggles, so it works by click on touch screens as well as
+   by keyboard, not by :hover alone.
+   -------------------------------------------------------------------------- */
+
+.navbar {
+  background: var(--nav-bg);
+}
+
+.navbar__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--space-lg);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 clamp(var(--space-sm), 5vw, var(--content-pad));
+  list-style: none;
+}
+
+.navbar__item {
+  position: relative;        /* anchors the dropdown panel */
+}
+
+.navbar__button,
+.navbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--nav-height);
+  padding: 0 var(--space-xs);
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--size-nav);
+  font-weight: 700;
+  color: var(--nav-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar__button:hover,
+.navbar__link:hover {
+  color: var(--nav-hover);
+  text-decoration: underline;
+}
+
+/* The page-wide focus ring is white, which would vanish on this white bar. */
+.navbar__button:focus-visible,
+.navbar__link:focus-visible,
+.navbar__menu-link:focus-visible {
+  outline: 3px solid var(--nav-text);
+  outline-offset: -3px;
+}
+
+.navbar__caret {
+  font-size: var(--size-caret);
+  line-height: 1;                 /* keeps the taller glyph from shifting the row */
+}
+
+.navbar__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: none;             /* opened by .navbar__item--open below */
+  min-width: 220px;
+  max-width: 80vw;
+  margin: 0;
+  padding: var(--space-xs) 0;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  list-style: none;
+}
+
+.navbar__item--open .navbar__menu {
+  display: block;
+}
+
+.navbar__menu-link {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-md);
+  color: var(--nav-text);
+  font-size: var(--size-body);
+  text-decoration: none;
+}
+
+.navbar__menu-link:hover,
+.navbar__menu-link:focus-visible {
+  color: var(--nav-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Page shell
+   -------------------------------------------------------------------------- */
+
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  /* clamp() keeps the 48px desktop padding but shrinks it on small phones,
+     so the page still fits at 360px without a media query. */
+  padding: var(--space-xl) clamp(var(--space-sm), 5vw, var(--content-pad));
+}
+
+.page__title {
+  margin: 0 0 var(--space-xl);
+  font-size: var(--size-h1);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.status {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Sections (one per group in the data file)
+   -------------------------------------------------------------------------- */
+
+.people-section + .people-section {
+  margin-top: var(--space-xl);
+}
+
+.people-section__title {
+  margin: 0 0 var(--space-lg);
+  font-size: var(--size-h2);
+  font-weight: 700;
+  color: var(--text);
+  text-align: left;
+}
+
+.people-section__subtitle {
+  margin: var(--space-lg) 0 var(--space-xs);
+  font-size: var(--size-h3);
+  font-weight: 700;
+}
+
+.people-section__subtitle:first-of-type {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Card grid — flex-wrap does all the responsive work.
+   240px cards in a 1080px box give at most 4 per row, dropping to 3, 2 then 1
+   as the viewport narrows. A short final row centres itself.
+   -------------------------------------------------------------------------- */
+
+.people-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--card-gap-row) var(--card-gap-col);
+  max-width: var(--cards-max);
+  margin: 0 auto;
+}
+
+.person-card {
+  flex: 0 0 var(--card-width);
+  max-width: 100%;
+  text-align: center;
+}
+
+.person-card__photo,
+.person-card__placeholder {
+  display: block;
+  width: 100%;
+  max-width: var(--photo-size);   /* smaller than the card, so it is centred */
+  aspect-ratio: 1 / 1;
+  margin: 0 auto var(--space-sm);
+}
+
+.person-card__photo {
+  object-fit: cover;
+}
+
+/* Initials tile, used when `photo` is missing or the file fails to load. */
+.person-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--placeholder-bg);
+  color: var(--placeholder-text);
+  font-size: var(--size-initials);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.person-card__name {
+  margin: 0 0 var(--space-xxs);
+  font-size: var(--size-name);
+  font-weight: 700;
+}
+
+.person-card__role,
+.person-card__topic {
+  margin: 0;
+  font-size: var(--size-body);
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Compact list rows (alumni)
+   -------------------------------------------------------------------------- */
+
+.people-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-xxs) var(--space-md);
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.person-row__main {
+  font-size: var(--size-body);
+}
+
+.person-row__name {
+  font-weight: 700;
+}
+
+.person-row__meta {
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Link rows (shared by cards and list rows)
+   -------------------------------------------------------------------------- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: var(--space-xs);
+}
+
+.links__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target); /* comfortable tap target on touch screens */
+  padding: 0 var(--icon-pad);
+  font-size: var(--size-link);   /* only shows for types without an icon */
+  font-weight: 700;
+}
+
+/* currentColor in the SVG means the icon inherits the link colour, including
+   the hover colour, so there is nothing extra to keep in sync. */
+.links__icon {
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.links--card {
+  justify-content: center;
+}
+
+.links--row {
+  justify-content: flex-end;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--divider);
+  padding: var(--space-lg) var(--space-sm);
+  text-align: center;
+}
+
+.footer__text {
+  margin: 0;
+  color: var(--text-muted);
+}
